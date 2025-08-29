@@ -1,0 +1,7 @@
+
+- docker compose up -d
+- 
+
+get into docker postgres database:
+-  docker exec -it postgres_db psql -U postgres -d postgres
+- \l : list databases
