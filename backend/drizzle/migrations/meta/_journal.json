@@ -8,6 +8,13 @@
       "when": 1756433653245,
       "tag": "0000_complex_landau",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1756516206289,
+      "tag": "0001_cynical_joystick",
+      "breakpoints": true
     }
   ]
 }

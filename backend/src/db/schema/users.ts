@@ -19,7 +19,7 @@ export const usersTable = pgTable(
     name: varchar({ length: 255 }).notNull(),
     email: varchar({ length: 255 }).notNull().unique(),
     password: varchar({ length: 255 }).notNull(),
-    role: varchar({ length: 5 }).notNull().default("user").$type<UserRole>(),
+    role: varchar({ length: 10 }).notNull().default("user").$type<UserRole>(),
     createdAt: timestamp({ withTimezone: true }).defaultNow(),
     updateddAt: timestamp({ withTimezone: true }).defaultNow(),
     age: integer(),
