@@ -2,6 +2,19 @@ import { eq } from "drizzle-orm";
 import { db } from "../db/db.ts";
 import { usersTable } from "../db/schema/users.ts";
 
+
+
+export const getAllUsers = async () => {
+ 
+  try {
+    const users = await db.select().from(usersTable);
+    return { success: true, users };
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return { success: false, message: "Server error" };
+  }
+};
+
 export const deleteUser = async (id: string) => {
   try {
     const deleted = await db

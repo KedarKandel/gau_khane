@@ -23,6 +23,7 @@ export const usersTable = pgTable(
     createdAt: timestamp({ withTimezone: true }).defaultNow(),
     updateddAt: timestamp({ withTimezone: true }).defaultNow(),
     age: integer(),
+
   },
   (table) => [
     check("age_check1", sql`${table.age} <= 120`),

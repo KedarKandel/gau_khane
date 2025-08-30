@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+
 //routes
 import authRoutes from "./routes/authRoutes.ts";
 import userRoutes from "./routes/userRoutes.ts"

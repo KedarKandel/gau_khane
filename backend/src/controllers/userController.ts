@@ -1,5 +1,5 @@
 import type { Response } from "express";
-import { deleteUser } from "../services/userService.ts";
+import { deleteUser, getAllUsers } from "../services/userService.ts";
 import type { AuthRequest } from "../types/index.ts";
 
 export const deleteUserController = async (req: AuthRequest, res: Response) => {
@@ -22,4 +22,25 @@ export const deleteUserController = async (req: AuthRequest, res: Response) => {
   return res.status(500).json(result);
 };
 
-export default deleteUserController;
+export const getAllUsersController = async (
+  req: AuthRequest,
+  res: Response
+) => {
+
+
+  try {
+    // Only allow if user is admin
+    if (!req.user || req.user?.role !== "admin") {
+      return res.status(403).json({ message: "Forbidden: Admins only" });
+    }
+    const result = await getAllUsers();
+    if (!result.success) {
+      return res.status(500).json({ message: result.message });
+    }
+
+    return res.json(result.users);
+  } catch (error) {
+    console.error("Error in getAllUsersController:", error);
+    return res.status(500).json({ message: "Server error" });
+  }
+};

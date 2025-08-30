@@ -1,3 +1,4 @@
+// src/types/index.ts
 import type { Request } from "express";
 
 export interface AuthRequest extends Request {
@@ -6,3 +7,5 @@ export interface AuthRequest extends Request {
     role: "user" | "admin" | "farmer"; 
   };
 }
+
+
